@@ -20,8 +20,8 @@ export const getList = async (id: string) => {
 };
 
 export const createList = async (input: {
+  cardId: string;
   name: string;
-  id: string;
   startedYear: string;
   startedMonth: string;
   startedDay: string;

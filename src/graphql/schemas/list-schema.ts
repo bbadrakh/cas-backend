@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 export const listTypeDefs = gql`
   type List {
     id: ID!
+    cardId: String!
     name: String!
     startedYear: String!
     startedMonth: String!
@@ -19,7 +20,7 @@ export const listTypeDefs = gql`
     check: Boolean!
   }
   input createListInput {
-    id: ID!
+    cardId: String!
     name: String!
     startedYear: String!
     startedMonth: String!

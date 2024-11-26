@@ -14,7 +14,8 @@ datasource db {
 }
 
 model List {
-  id            String  @id @map("_id")
+  id            String  @id @default(nanoid()) @map("_id")
+  cardId        String
   name          String?
   startedYear   String
   startedMonth  String

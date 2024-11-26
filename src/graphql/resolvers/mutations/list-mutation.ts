@@ -7,7 +7,7 @@ export const listMutations = {
       input,
     }: {
       input: {
-        id: string;
+        cardId: string;
         name: string;
         startedYear: string;
         startedMonth: string;
