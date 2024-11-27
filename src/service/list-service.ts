@@ -5,7 +5,7 @@ export const getLists = async () => {
   try {
     const result = await prisma.list.findMany();
     return result;
-  } catch (err) {
+  } catch {
     throw new GraphQLError("Error fetching users");
   }
 };
@@ -14,7 +14,7 @@ export const getList = async (id: string) => {
   try {
     const result = await prisma.list.findUnique({ where: { id } });
     return result;
-  } catch (err) {
+  } catch {
     throw new GraphQLError("Cannot fetch an list with that id");
   }
 };
@@ -33,7 +33,7 @@ export const createList = async (input: {
   try {
     const result = await prisma.list.create({ data: input });
     return result;
-  } catch (err) {
+  } catch {
     throw new GraphQLError("Error creating list");
   }
 };
@@ -42,7 +42,7 @@ export const deleteList = async (id: string) => {
   try {
     const result = await prisma.list.delete({ where: { id } });
     return result;
-  } catch (err) {
+  } catch {
     throw new GraphQLError("Error deleting user");
   }
 };
@@ -62,7 +62,7 @@ export const patchList = async (
   try {
     const result = await prisma.list.update({ where: { id }, data: input });
     return result;
-  } catch (err) {
+  } catch {
     throw new GraphQLError("Error patching user");
   }
 };
