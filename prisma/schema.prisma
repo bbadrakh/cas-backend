@@ -16,7 +16,7 @@ datasource db {
 model List {
   id            String  @id @default(nanoid()) @map("_id")
   cardId        String
-  name          String?
+  name          String
   startedYear   String
   startedMonth  String
   startedDay    String
