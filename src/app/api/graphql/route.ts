@@ -4,11 +4,17 @@ import { typeDefs } from "@/graphql/schemas";
 import { resolvers } from "@/graphql/resolvers";
 
 const server = new ApolloServer({
-  resolvers,
   typeDefs,
-  introspection: true,
+  resolvers,
+  introspection: process.env.NODE_ENV !== "production",
 });
 
-const handler = startServerAndCreateNextHandler(server);
+const apolloHandler = startServerAndCreateNextHandler(server);
 
-export { handler as GET, handler as POST };
+export async function GET(request: Request) {
+  return apolloHandler(request);
+}
+
+export async function POST(request: Request) {
+  return apolloHandler(request);
+}
