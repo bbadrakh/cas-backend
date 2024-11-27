@@ -5,7 +5,6 @@ const nextConfig = {
       {
         source: "/api/graphql",
         headers: [
-          { key: "Access-Control-Allow-Credentials", value: "true" },
           { key: "Access-Control-Allow-Origin", value: "*" },
           { key: "Access-Control-Allow-Methods", value: "GET, POST, PUT, DELETE, OPTIONS" },
           {
@@ -17,9 +16,7 @@ const nextConfig = {
     ];
   },
   reactStrictMode: false,
-  env: {
-    DATABASE_URL: process.env.DATABASE_URL || "",
-  },
+  env: process.env.DATABASE_URL || "",
 };
 
 export default nextConfig;
