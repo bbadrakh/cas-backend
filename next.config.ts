@@ -3,20 +3,22 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/api/(.*)",
+        source: "/api/:path*",
         headers: [
           { key: "Access-Control-Allow-Origin", value: "*" },
           { key: "Access-Control-Allow-Methods", value: "GET, POST, PUT, DELETE, OPTIONS" },
           {
             key: "Access-Control-Allow-Headers",
-            value: "Content-Type, Authorization",
+            value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
           },
         ],
       },
     ];
   },
   reactStrictMode: false,
-  env: process.env.DATABASE_URL || "",
+  env: {
+    DATABASE_URL: process.env.DATABASE_URL,
+  },
 };
 
 export default nextConfig;
