@@ -42,7 +42,7 @@ export const listTypeDefs = gql`
   }
 
   type Query {
-    getLists: [List]!
+    getLists: [List!]!
     getList(id: ID!): List!
   }
   type Mutation {
